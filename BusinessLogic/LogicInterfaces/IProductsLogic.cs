@@ -12,10 +12,10 @@ namespace BusinessLogic.LogicInterfaces
     {
         DataTable GetAllProducts();
 
-        DataTable AddProduct(string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued);
+        void AddProduct(string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued);
 
         Products GetProductProductByName(string productName);
 
-        DataTable UpdateProduct(int ProductId, string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued);
+        void UpdateProduct(int ProductId, string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued);
     }
 }

@@ -14,7 +14,7 @@ namespace BusinessLogic
             _productsRepo = productsRepository;
         }
 
-        public DataTable AddProduct(string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued)
+        public void AddProduct(string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued)
         {
             var product = new Products 
             {
@@ -29,7 +29,6 @@ namespace BusinessLogic
                 Discontinued = Discontinued
             };
             _productsRepo.AddProduct(product);
-            return GetAllProducts();
         }
 
         public DataTable GetAllProducts()
@@ -42,7 +41,7 @@ namespace BusinessLogic
             return _productsRepo.GetProductProductByName(productName);
         }
 
-        public DataTable UpdateProduct(int ProductId, string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued)
+        public void UpdateProduct(int ProductId, string ProductName, int SupplierID, int CategoryID, string QuantityPerUnit, decimal UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued)
         {
             var product = new Products
             {
@@ -58,7 +57,6 @@ namespace BusinessLogic
                 Discontinued = Discontinued
             };
             _productsRepo.UpdateProduct(product);
-            return GetAllProducts();
         }
     }
 }

@@ -53,7 +53,7 @@ namespace NorthwindSupplierManagementSystem
             {
                 _categoryLogic.AddCategory(_CategoryName, _CategoryDescription);
                 ClearInputsAndPopulateDataGridView();
-                MessageBox.Show("Product Added.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Category Added.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -104,7 +104,7 @@ namespace NorthwindSupplierManagementSystem
             {
                 _categoryLogic.UpdateCategory(_CategoryID,_CategoryName, _CategoryDescription);
                 ClearInputsAndPopulateDataGridView();
-                MessageBox.Show("Product Added.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Category updated.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

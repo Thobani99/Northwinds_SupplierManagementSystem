@@ -14,6 +14,7 @@ namespace NorthwindSupplierManagementSystem
         private Login _login;
         private IProductsLogic _productsLogic;
         private ISuppliersLogic _suppliersLogic;
+        private ICategoryLogic _categoryLogic;
 
         private int _ProductID;
         private string _ProductName = string.Empty;
@@ -33,8 +34,9 @@ namespace NorthwindSupplierManagementSystem
             _login = login;
             _productsLogic = new ProductsLogic(new ProductsRepository(new DBConnection()));
             _suppliersLogic = new SuppliersLogic(new SuppliersRepository(new DBConnection()));
+            _categoryLogic = new CategoryLogic(new CategoryRepository(new DBConnection()));
 
-            dataGridView1.DataSource = _productsLogic.GetAllProducts();
+            LoadDataGridView();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -125,15 +127,18 @@ namespace NorthwindSupplierManagementSystem
             {
                 MessageBox.Show("Invalid supplier Id, check on the suppliers page to get existing supplier Ids.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (!_categoryLogic.DoesCategoryExist(_CategoryID))
+            {
+                MessageBox.Show("Invalid category Id, check on the category page to get existing category Ids.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else if (DoeProductNameExist())
             {
                 MessageBox.Show("Product Name is on the list, try updating the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _productsLogic.AddProduct(_ProductName, _SupplierID, _CategoryID, _QuantityPerUnit, _UnitPrice, _UnitsInStock, _UnitsOnOrder, _ReorderLevel, _Discontinued);
-                ClearInputBoxesAndDataGrid();
+                _productsLogic.AddProduct(_ProductName, _SupplierID, _CategoryID, _QuantityPerUnit, _UnitPrice, _UnitsInStock, _UnitsOnOrder, _ReorderLevel, _Discontinued);
+                LoadDataGridView();
                 MessageBox.Show("Product Added.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -185,11 +190,14 @@ namespace NorthwindSupplierManagementSystem
             {
                 MessageBox.Show("Invalid supplier Id, check on the suppliers page to get existing supplier Ids.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (!_categoryLogic.DoesCategoryExist(_CategoryID))
+            {
+                MessageBox.Show("Invalid category Id, check on the category page to get existing category Ids.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _productsLogic.UpdateProduct(_ProductID, _ProductName, _SupplierID, _CategoryID, _QuantityPerUnit, _UnitPrice, _UnitsInStock, _UnitsOnOrder, _ReorderLevel, _Discontinued);
-                ClearInputBoxesAndDataGrid();
+                _productsLogic.UpdateProduct(_ProductID, _ProductName, _SupplierID, _CategoryID, _QuantityPerUnit, _UnitPrice, _UnitsInStock, _UnitsOnOrder, _ReorderLevel, _Discontinued);
+                LoadDataGridView();
                 MessageBox.Show("Product Updated.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -197,6 +205,7 @@ namespace NorthwindSupplierManagementSystem
         private void ClearInputBoxesAndDataGrid()
         {
             checkBox1.Checked = false;
+            dataGridView1.DataSource = null;
             txt_UnitPrice.Text = string.Empty;
             txt_UnitsInStock.Text = string.Empty;
             txt_UnitsOnOrder.Text = string.Empty;
@@ -218,6 +227,11 @@ namespace NorthwindSupplierManagementSystem
             _Discontinued = checkBox1.Checked;
         }
 
+        private void LoadDataGridView() 
+        {
+            ClearInputBoxesAndDataGrid();
+            dataGridView1.DataSource = _productsLogic.GetAllProducts();
+        }
 
         private bool DoesSupplierExist()
         {
