@@ -28,7 +28,7 @@ namespace NorthwindSupplierManagementSystem
             _login = login;
             _suppliersLogic = new SuppliersLogic(new SuppliersRepository(new DBConnection()));
 
-            dataGridView1.DataSource = _suppliersLogic.GetSuppliers();
+            LoadDataGridView();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,9 +72,8 @@ namespace NorthwindSupplierManagementSystem
             }
             else
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _suppliersLogic.AddSupplier(_CompanyName, _ContactName, _ContactTitle, _Address, _City, _Region, _PostalCode, _Country, _Phone, _Fax);
-                ClearInputBoxesAndDataGrid();
+                _suppliersLogic.AddSupplier(_CompanyName, _ContactName, _ContactTitle, _Address, _City, _Region, _PostalCode, _Country, _Phone, _Fax);
+                LoadDataGridView();
                 MessageBox.Show("Supplier Added.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -133,9 +132,8 @@ namespace NorthwindSupplierManagementSystem
             }
             else
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _suppliersLogic.UpdateSupplier(_supplierId, _CompanyName, _ContactName, _ContactTitle, _Address, _City, _Region, _PostalCode, _Country, _Phone, _Fax);
-                ClearInputBoxesAndDataGrid();
+                _suppliersLogic.UpdateSupplier(_supplierId, _CompanyName, _ContactName, _ContactTitle, _Address, _City, _Region, _PostalCode, _Country, _Phone, _Fax);
+                LoadDataGridView();
                 MessageBox.Show("Supplier Updated.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -149,9 +147,8 @@ namespace NorthwindSupplierManagementSystem
             }
             else
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = _suppliersLogic.DeleteSupplier(_supplierId);
-                ClearInputBoxesAndDataGrid();
+                _suppliersLogic.DeleteSupplier(_supplierId);
+                LoadDataGridView();
                 MessageBox.Show("Supplier Removed.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -160,6 +157,7 @@ namespace NorthwindSupplierManagementSystem
         private void ClearInputBoxesAndDataGrid()
         {
             _supplierId = 0;
+            dataGridView1.DataSource = null;
             txt_CompanyName.Text = string.Empty;
             txt_ContactName.Text = string.Empty;
             txt_ContactTitle.Text = string.Empty;
@@ -170,8 +168,12 @@ namespace NorthwindSupplierManagementSystem
             txt_Country.Text = string.Empty;
             txt_Phone.Text = string.Empty;
             txt_Fax.Text = string.Empty;
+        }
 
-            //dataGridView1.Columns["SupplierID"].Visible = false;
+        private void LoadDataGridView() 
+        {
+            ClearInputBoxesAndDataGrid();
+            dataGridView1.DataSource = _suppliersLogic.GetSuppliers();
         }
     }
 }

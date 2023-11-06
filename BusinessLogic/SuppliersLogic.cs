@@ -14,7 +14,7 @@ namespace BusinessLogic
             _suppliersRepo = suppliersRepository;
         }
 
-        public DataTable AddSupplier(string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax)
+        public void AddSupplier(string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax)
         {
             var supplier = new Suppliers 
             {
@@ -30,13 +30,11 @@ namespace BusinessLogic
                 Fax = Fax
             };
             _suppliersRepo.AddSupplier(supplier);
-            return GetSuppliers();
         }
 
-        public DataTable DeleteSupplier(int SupplierId)
+        public void DeleteSupplier(int SupplierId)
         {
             _suppliersRepo.RemoveSupplierById(SupplierId);
-            return GetSuppliers();
         }
 
         public Suppliers GetSupplierBySupplierId(int SupplierId)
@@ -49,7 +47,7 @@ namespace BusinessLogic
            return _suppliersRepo.GetSuppliers();
         }
 
-        public DataTable UpdateSupplier(int SupplierId, string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax)
+        public void UpdateSupplier(int SupplierId, string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax)
         {
             var supplier = new Suppliers 
             {
@@ -66,7 +64,6 @@ namespace BusinessLogic
                 Fax = Fax
             };
             _suppliersRepo.UpdateSupplier(supplier);
-            return GetSuppliers();
         }
     }
 }

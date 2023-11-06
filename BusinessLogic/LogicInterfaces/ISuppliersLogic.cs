@@ -12,11 +12,11 @@ namespace BusinessLogic.LogicInterfaces
     {
         DataTable GetSuppliers();
 
-        DataTable AddSupplier(string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax);
+        void AddSupplier(string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax);
 
-        DataTable UpdateSupplier(int SupplierId,string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax);
+        void UpdateSupplier(int SupplierId,string CompanyName, string ContactName, string ContactTitle, string Address, string City, string Region, string PostalCode, string Country, string Phone, string Fax);
 
-        DataTable DeleteSupplier(int SupplierId);
+        void DeleteSupplier(int SupplierId);
 
         Suppliers GetSupplierBySupplierId(int SupplierId);
     }
