@@ -147,9 +147,14 @@ namespace NorthwindSupplierManagementSystem
             }
             else
             {
-                _suppliersLogic.DeleteSupplier(_supplierId);
+                DialogResult result = MessageBox.Show("Deleting a supplier will results in some products missing a supplier. \nDo you want to continue?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    _suppliersLogic.DeleteSupplier(_supplierId);
+                    MessageBox.Show("Supplier Removed.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 LoadDataGridView();
-                MessageBox.Show("Supplier Removed.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
