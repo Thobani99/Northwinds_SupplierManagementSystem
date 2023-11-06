@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageProducts));
             panel1 = new Panel();
+            button5 = new Button();
             checkBox1 = new CheckBox();
             label7 = new Label();
             label8 = new Label();
@@ -55,7 +56,6 @@
             button1 = new Button();
             pictureBox1 = new PictureBox();
             label3 = new Label();
-            button5 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -63,6 +63,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.AppWorkspace;
             panel1.Controls.Add(button5);
             panel1.Controls.Add(checkBox1);
@@ -94,6 +95,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1029, 571);
             panel1.TabIndex = 3;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(413, 484);
+            button5.Name = "button5";
+            button5.Size = new Size(252, 49);
+            button5.TabIndex = 37;
+            button5.Text = "Manage Categories";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // checkBox1
             // 
@@ -272,6 +283,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(11, 55);
             dataGridView1.Name = "dataGridView1";
@@ -306,6 +318,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(11, 9);
             pictureBox1.Margin = new Padding(0);
@@ -317,6 +330,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.ForeColor = SystemColors.Highlight;
             label3.Location = new Point(435, 547);
@@ -325,22 +339,13 @@
             label3.TabIndex = 6;
             label3.Text = "Developed By Thobani Ndlela";
             // 
-            // button5
-            // 
-            button5.Location = new Point(413, 484);
-            button5.Name = "button5";
-            button5.Size = new Size(252, 49);
-            button5.TabIndex = 37;
-            button5.Text = "Manage Categories";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // ManageProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 571);
             Controls.Add(panel1);
+            MaximizeBox = false;
             Name = "ManageProducts";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Products";

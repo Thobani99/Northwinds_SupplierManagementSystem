@@ -227,10 +227,11 @@ namespace NorthwindSupplierManagementSystem
             _Discontinued = checkBox1.Checked;
         }
 
-        private void LoadDataGridView() 
+        private void LoadDataGridView()
         {
             ClearInputBoxesAndDataGrid();
             dataGridView1.DataSource = _productsLogic.GetAllProducts();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private bool DoesSupplierExist()

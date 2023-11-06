@@ -65,6 +65,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.AppWorkspace;
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label8);
@@ -295,6 +296,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(11, 55);
             dataGridView1.Name = "dataGridView1";
@@ -329,6 +331,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(11, 9);
             pictureBox1.Margin = new Padding(0);
@@ -354,6 +357,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 533);
             Controls.Add(panel1);
+            MaximizeBox = false;
             Name = "Suppliers";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Suppliers";
@@ -385,7 +389,6 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private Label label6;
         private Label label5;
         private Label label4;
         private Label label2;
@@ -395,5 +398,6 @@
         private TextBox txt_Country;
         private TextBox txt_PostCode;
         private TextBox txt_Region;
+        private Label label6;
     }
 }

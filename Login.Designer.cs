@@ -131,6 +131,7 @@
             ClientSize = new Size(678, 313);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

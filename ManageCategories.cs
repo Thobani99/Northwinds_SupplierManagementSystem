@@ -102,7 +102,7 @@ namespace NorthwindSupplierManagementSystem
             }
             else
             {
-                _categoryLogic.UpdateCategory(_CategoryID,_CategoryName, _CategoryDescription);
+                _categoryLogic.UpdateCategory(_CategoryID, _CategoryName, _CategoryDescription);
                 ClearInputsAndPopulateDataGridView();
                 MessageBox.Show("Category updated.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

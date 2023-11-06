@@ -47,5 +47,12 @@ namespace NorthwindSupplierManagementSystem
             manageCategories.Show();
             this.Hide();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CustomersList customersList = new CustomersList(_Login);
+            customersList.Show();
+            this.Hide();
+        }
     }
 }

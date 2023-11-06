@@ -175,10 +175,11 @@ namespace NorthwindSupplierManagementSystem
             txt_Fax.Text = string.Empty;
         }
 
-        private void LoadDataGridView() 
+        private void LoadDataGridView()
         {
             ClearInputBoxesAndDataGrid();
             dataGridView1.DataSource = _suppliersLogic.GetSuppliers();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 }

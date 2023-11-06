@@ -33,6 +33,7 @@ namespace NorthwindSupplierManagementSystem
             serviceCollection.AddSingleton<ISuppliersRepository, SuppliersRepository>();
             serviceCollection.AddSingleton<IProductsRepository, ProductsRepository>();
             serviceCollection.AddSingleton<ICategoryRepository, CategoryRepository>();
+            serviceCollection.AddSingleton<ICustomersRepository, CustomersRepository>();
             #endregion
 
 
@@ -40,6 +41,7 @@ namespace NorthwindSupplierManagementSystem
             serviceCollection.AddSingleton<IManagerLogic, ManagerLogic>();
             serviceCollection.AddSingleton<ISuppliersLogic, SuppliersLogic>();
             serviceCollection.AddSingleton<IProductsLogic, ProductsLogic>();
+            serviceCollection.AddSingleton<ICustomersLogic, CustomersLogic>();
             #endregion
 
             #region UI's
@@ -48,6 +50,7 @@ namespace NorthwindSupplierManagementSystem
             serviceCollection.AddSingleton<Suppliers>();
             serviceCollection.AddSingleton<ManageProducts>();
             serviceCollection.AddSingleton<ManageCategories>();
+            serviceCollection.AddSingleton<CustomersList>();
             #endregion 
 
             return serviceCollection.BuildServiceProvider();
