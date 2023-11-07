@@ -66,6 +66,7 @@ namespace NorthwindSupplierManagementSystem
             _CategoryID = 0;
 
             dataGridView1.DataSource = _categoryLogic.GetAllCategories();
+            dataGridView1.ReadOnly = true;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 

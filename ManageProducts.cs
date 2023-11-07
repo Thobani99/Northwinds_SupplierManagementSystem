@@ -231,6 +231,7 @@ namespace NorthwindSupplierManagementSystem
         {
             ClearInputBoxesAndDataGrid();
             dataGridView1.DataSource = _productsLogic.GetAllProducts();
+            dataGridView1.ReadOnly = true;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 

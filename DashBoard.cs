@@ -1,15 +1,4 @@
-﻿using BusinessLogic;
-using BusinessLogic.LogicInterfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿
 namespace NorthwindSupplierManagementSystem
 {
     public partial class DashBoard : Form
@@ -52,6 +41,13 @@ namespace NorthwindSupplierManagementSystem
         {
             CustomersList customersList = new CustomersList(_Login);
             customersList.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OrdersForm ordersForm = new OrdersForm(_Login);
+            ordersForm.Show();
             this.Hide();
         }
     }

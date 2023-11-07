@@ -5,18 +5,18 @@ using RepositoryLogic.Repositories;
 
 namespace NorthwindSupplierManagementSystem
 {
-    public partial class CustomersList : Form
+    public partial class OrdersForm : Form
     {
         private Login _login;
-        private ICustomersLogic _customersLogic;
+        private IOrdersLogic _ordersLogic;
 
-        public CustomersList(Login login)
+        public OrdersForm(Login login)
         {
             InitializeComponent();
             _login = login;
-            _customersLogic = new CustomersLogic(new CustomersRepository(new DBConnection()));
+            _ordersLogic = new OrdersLogic(new OrdersRepository(new DBConnection()));
 
-            dataGridView1.DataSource = _customersLogic.GetAllCustomers();
+            dataGridView1.DataSource = _ordersLogic.GetOrdersFromAView();
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
@@ -32,11 +32,6 @@ namespace NorthwindSupplierManagementSystem
             DashBoard dashBoard = new DashBoard(_login);
             dashBoard.Show();
             this.Hide();
-        }
-
-        private void CustomersList_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

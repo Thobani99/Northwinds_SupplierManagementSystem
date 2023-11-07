@@ -92,6 +92,7 @@
             button4.TabIndex = 2;
             button4.Text = "View Detailed Orders  Report";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
