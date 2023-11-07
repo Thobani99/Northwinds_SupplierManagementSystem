@@ -1,0 +1,20 @@
+1. Run the Northwind_DB.sql script to add the database on your device. file path :
+DataLogic => DataBaseScript
+
+2. Alter the App.config file in the DataLogic.
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <connectionStrings>
+    <add name="cn" connectionString="Data Source=*Your Server*;Initial Catalog=Northwind;Integrated Security=True" providerName="Microsoft.Data.SqlClient"/>
+  </connectionStrings>
+</configuration>
+
+NB: Add your server where you ran the database script.
+
+
+----------------------------------------------------------------
+Login Details :
+
+Work Email : ndlelathoban@gmail.com
+Password : @Manager1
+
